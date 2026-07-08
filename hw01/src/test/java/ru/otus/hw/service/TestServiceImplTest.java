@@ -39,6 +39,7 @@ public class TestServiceImplTest {
         given(questionFormatterService.format(question)).willReturn("formattedQuestion");
         testService.executeTest();
 
+        verify(questionDao).findAll();
         verify(questionFormatterService).format(question);
         verify(ioService).printLine("formattedQuestion");
     }
